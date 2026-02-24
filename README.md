@@ -1,109 +1,111 @@
-Campus Compass 🧭
+<h1>Campus Compass 🧭</h1>
+    <p><strong>Campus Compass</strong> is a lightweight Python web application designed to provide campus-related utilities, APIs, or navigation-based services. 
+    It is structured for easy deployment, scalability, and containerization using Docker.</p>
 
-Campus Compass is a lightweight Python web app designed to serve as a backend API or navigation-related service for campus utilities — such as finding locations, managing campus data, or providing a simple interface to campus resources.
+   <h2>🚀 Features</h2>
+    <ul>
+        <li>Clean and simple Flask backend structure</li>
+        <li>API routes managed through <code>app.py</code></li>
+        <li>Docker-ready configuration</li>
+        <li>Easy to extend and customize</li>
+    </ul>
 
-🚀 Features
+  <h2>🧱 Tech Stack</h2>
+    <table>
+        <tr>
+            <th>Technology</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Core backend language</td>
+        </tr>
+        <tr>
+            <td>Flask</td>
+            <td>Web framework</td>
+        </tr>
+        <tr>
+            <td>Docker</td>
+            <td>Containerization</td>
+        </tr>
+        <tr>
+            <td>GitHub Actions</td>
+            <td>CI/CD workflows</td>
+        </tr>
+    </table>
 
-🔹 Simple and clean Python/Flask structure
+   <h2>📁 Project Structure</h2>
 
-🔹 API routes powered by app.py
+   <pre>
+campus-compass/
+│
+├── .github/workflows/
+├── Dockerfile
+├── app.py
+├── requirements.txt
+└── README.md
+    </pre>
 
-🔹 Easily containerizable with Docker
+   <h2>📌 Getting Started</h2>
 
-🔹 Lightweight and easy to extend
+  <h3>Prerequisites</h3>
+    <ul>
+        <li>Python 3.8+</li>
+        <li>pip</li>
+        <li>Docker (optional)</li>
+    </ul>
 
-🧱 Tech Stack
-Component	Purpose
-🐍 Python	Core backend language
-🧠 Flask	Web framework for API/UI
-📦 requirements.txt	Project dependencies
-🐳 Docker	Containerization (optional)
-📁 Repository Structure
-📦 campus-compass
-├── .github/workflows/     # CI/CD workflows
-├── Dockerfile             # Docker container config
-├── app.py                 # Main Flask application
-├── README.md              # Project documentation
-└── requirements.txt       # Python dependencies
-📌 Getting Started
-🧩 Prerequisites
-
-Make sure you have installed:
-
-Python 3.8+
-
-pip (Python package manager)
-
-(Optional) Docker
-
-🛠️ Local Development
-
-Clone the repository:
-
+  <h3>Clone the Repository</h3>
+    <pre>
 git clone https://github.com/javintrivedi/campus-compass.git
 cd campus-compass
+    </pre>
 
-Install dependencies:
-
+  <h3>Install Dependencies</h3>
+    <pre>
 pip install -r requirements.txt
+    </pre>
 
-Run the app:
-
+  <h3>Run the Application</h3>
+    <pre>
 python app.py
+    </pre>
 
-The application should now be running locally (e.g., on http://127.0.0.1:5000, if using Flask defaults).
+  <p>The application will typically run at:</p>
+    <code>http://127.0.0.1:5000</code>
 
-🐳 Using Docker (Optional)
+   <h2>🐳 Running with Docker</h2>
 
-Build the Docker image:
-
+   <pre>
 docker build -t campus-compass .
-
-Run the container:
-
 docker run -p 5000:5000 campus-compass
+    </pre>
 
-Access the app at http://localhost:5000.
+   <p>Access the app at:</p>
+    <code>http://localhost:5000</code>
 
-📦 Dependencies
+   <h2>🛠️ Future Enhancements</h2>
+    <ul>
+        <li>Interactive campus map interface</li>
+        <li>Database integration</li>
+        <li>User authentication</li>
+        <li>Frontend integration (React/Vue)</li>
+    </ul>
 
-All required Python packages are listed in requirements.txt.
+  <h2>🤝 Contributing</h2>
+    <p>Contributions are welcome!</p>
+    <ol>
+        <li>Fork the repository</li>
+        <li>Create a new branch</li>
+        <li>Commit your changes</li>
+        <li>Push and create a pull request</li>
+    </ol>
 
-Example:
+   <h2>📄 License</h2>
+    <p>No license specified yet. Consider adding an MIT or Apache 2.0 license for open-source distribution.</p>
 
-Flask==<version>
-...
+  <hr>
+    <p><em>Made by Javin Trivedi and Sania Tanweer</em></p>
 
-(Edit this file to include actual dependency versions if missing.)
-
-📝 Contributing
-
-Contributions are welcome! 🎉
-To contribute:
-
-Fork this repository
-
-Create a new branch (git checkout -b feature/YourFeature)
-
-Commit your changes
-
-Push to your fork
-
-Open a pull request
-
-🛠️ Future Improvements
-
-Here are some ideas you might want to add:
-
-🔹 Campus map UI with interactive navigation
-
-🔹 Integration with React/Vue frontend
-
-🔹 Database for user data and location metadata
-
-🔹 Authentication / user accounts
-
-📄 License
-
-This project doesn’t currently specify a license.
-Consider adding an open source license like MIT / Apache 2.0 for community use.
+</body>
+</html>
