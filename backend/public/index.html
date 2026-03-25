@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campus Compass</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Campus Compass 🚀</h1>
+
+    <!-- Add Student -->
+    <h2>Add Student</h2>
+    <input id="name" placeholder="Enter name">
+    <br>
+    <button onclick="addStudent()">Add</button>
+
+<!-- Upload CSV -->
+    <h2>Upload CSV</h2>
+    <p><small>Columns: name (required), student_id, email, department, gpa, major, phone, year. <a href="sample-students.csv" download>Download Sample CSV</a></small></p>
+    <input type="file" id="file" accept=".csv">
+    <button onclick="uploadCSV()">Upload CSV</button>
+
+    <!-- Search -->
+    <h2>Search Student 🔍</h2>
+    <input id="search" placeholder="Enter name">
+    <button onclick="searchStudent()">Search</button>
+
+    <!-- List -->
+    <h2>Students List</h2>
+    <button onclick="getStudents()">Show Students</button>
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    // Add student (fixed - single function)
+    async function addStudent() {
+      const nameInput = document.getElementById("name");
+      const name = nameInput.value.trim();
+
+      if (name === "") {
+        alert("Please enter a student name ❗");
+        nameInput.focus();
+        return;
+      }
+
+      try {
+        await fetch("/add-student", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name })
+        });
+        alert("Student Added ✅");
+        nameInput.value = "";
+        getStudents(); // refresh list
+      } catch (err) {
+        alert("Error adding student: " + err.message);
+      }
+    }
+
+    // Upload CSV
+    async function uploadCSV() {
+      const fileInput = document.getElementById("file");
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Please select a CSV file");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+        await fetch("/upload-csv", {
+          method: "POST",
+          body: formData
+        });
+        alert("CSV Uploaded Successfully ✅");
+        fileInput.value = "";
+        getStudents(); // refresh list
+      } catch (err) {
+        alert("Upload error: " + err.message);
+      }
+    }
+
+    // Get all students (NEW - was missing)
+    async function getStudents() {
+      try {
+        const res = await fetch("/students");
+        const data = await res.json();
+        displayStudents(data);
+      } catch (err) {
+        alert("Error fetching students: " + err.message);
+      }
+    }
+
+    // Search student
+    async function searchStudent() {
+      const name = document.getElementById("search").value.trim();
+      if (!name) {
+        alert("Enter name to search");
+        return;
+      }
+
+      try {
+        const res = await fetch(`/search?name=${encodeURIComponent(name)}`);
+        const data = await res.json();
+        displayStudents(data);
+      } catch (err) {
+        alert("Search error: " + err.message);
+      }
+    }
+
+    // Display students
+    function displayStudents(data) {
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      if (data.length === 0) {
+        list.innerHTML = "<li>No students found</li>";
+        return;
+      }
+
+      data.forEach(s => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <div style="padding:10px; border:1px solid #ccc; margin:10px 0; border-radius:8px;">
+            <strong>Name:</strong> ${s.name || "N/A"} <br>
+            ${Object.keys(s)
+              .filter(key => key !== "name")
+              .map(key => `<strong>${key}:</strong> ${s[key] || "N/A"}`)
+              .join("<br>")}
+          </div>
+        `;
+        list.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

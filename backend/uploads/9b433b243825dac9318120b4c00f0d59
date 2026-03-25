@@ -1,0 +1,13 @@
+Student_ID,Name,Age,Department,Marks,Email
+101,Asha,20,CSE,85,asha@gmail.com
+102,Rahul,21,IT,78,rahul@gmail.com
+103,Priya,,CSE,92,priya@gmail.com
+104,Kiran,22,ECE,88,
+105,Meena,20,CSE,76,meena@gmail.com
+106,Arun,23,IT,,arun@gmail.com
+107,Divya,21,CSE,90,divya@gmail.com
+108,Varun,22,ECE,85,varun@gmail.com
+109,Sneha,,IT,80,sneha@gmail.com
+110,Asha,20,CSE,85,asha@gmail.com
+111,Raj,twenty,CSE,70,raj@gmail.com
+112,Anita,21,,95,anita@gmail.com
